@@ -1,6 +1,5 @@
 package tn.esprit.spring.entities;
 
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,12 +16,12 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "T_USER")
 public class User implements Serializable {
-	
-	// commentaitre 3ALINFO5 
-	
-	// commentaire 1 
-	// Commentaire 2 
-	
+
+	// commentaitre 3ALINFO5
+
+	// commentaire 1
+	// Commentaire 2
+
 	// Commaentaire 4
 	// hhhh
 	// modif 5
@@ -30,18 +29,18 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Long id;   
-	
-	private String firstName; 
-	
+	private Long id;
+
+	private String firstName;
+
 	private String lastName;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
-	
+
 	@Enumerated(EnumType.STRING)
-	Role role; 
-	
+	Role role;
+
 	public User() {	}
 
 	public User(String firstName, String lastName, Date dateNaissance, Role role) {
@@ -95,6 +94,6 @@ public class User implements Serializable {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	
+
 
 }
