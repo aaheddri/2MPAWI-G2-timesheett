@@ -15,8 +15,7 @@ public class ContratDto {
     public ContratDto() {
     }
 
-    public ContratDto(Long reference, Date dateDebut, String typeContrat, float salaire) {
-        this.reference = reference;
+    public ContratDto(Date dateDebut, String typeContrat, float salaire) {
         this.dateDebut = dateDebut;
         this.typeContrat = typeContrat;
         this.salaire = salaire;

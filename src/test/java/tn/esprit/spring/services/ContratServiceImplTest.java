@@ -42,29 +42,27 @@ class ContratServiceImplTest {
 
     @Test
     @Order(2)
-    void testAddContrat()  {
+    void testAddContrat() {
         try {
             log.info("Starting testAddContrat...");
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date d = dateFormat.parse("2023-01-01");
 
-            ContratDto contratDto = new ContratDto();
-            contratDto.setDateDebut(d);
-            contratDto.setTypeContrat("CDI");
-            contratDto.setSalaire(5000.0f);
+            ContratDto contratDto = new ContratDto(d, "CDI", 5000.0f);
 
             Contrat contratAdded = cn.addContrat(contratDto);
 
             Assertions.assertNotNull(contratAdded);
+            Assertions.assertEquals(contratDto.getDateDebut(), contratAdded.getDateDebut());
             Assertions.assertEquals(contratDto.getTypeContrat(), contratAdded.getTypeContrat());
+            Assertions.assertEquals(contratDto.getSalaire(), contratAdded.getSalaire());
             log.info("Contrat successfully added with ID: {}", contratAdded.getReference());
             log.info("Test testAddContrat completed successfully");
 
         } catch (Exception e) {
-            log.error("Error of testAddContrat", e);
+            log.error("Error in testAddContrat", e);
         }
     }
-
 
     @Test
     @Order(3)
@@ -77,11 +75,8 @@ class ContratServiceImplTest {
             Contrat existingContrat = cn.retrieveAllContrats().get(0);
 
             // Mettez à jour tous les champs du contrat
-            ContratDto contratDto = new ContratDto();
-            contratDto.setReference(existingContrat.getReference());  // Assurez-vous que la référence est correcte
-            contratDto.setDateDebut(newDateDebut);
-            contratDto.setTypeContrat("CDD"); // Modifiez le type de contrat
-            contratDto.setSalaire(6000.0f);  // Modifiez le salaire
+            ContratDto contratDto = new ContratDto(newDateDebut, "CDD", 6000.0f);
+            contratDto.setReference(existingContrat.getReference());
 
             Contrat contratUpdated = cn.updateContrat(contratDto);
 
@@ -93,7 +88,7 @@ class ContratServiceImplTest {
 
             log.info("Test testUpdateContrat completed successfully");
         } catch (Exception e) {
-            log.error("Error of testUpdateContrat", e);
+            log.error("Error in testUpdateContrat", e);
         }
     }
 

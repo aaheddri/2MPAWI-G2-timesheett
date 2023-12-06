@@ -25,19 +25,4 @@ class ContratDtoTest {
         assertThat(contratDto.getSalaire()).isEqualTo(salaire);
     }
 
-    @Test
-    void testContratDtoConstructor() {
-        // Création d'une instance de ContratDto avec le constructeur
-        Date dateDebut = new Date();
-        String typeContrat = "CDI";
-        float salaire = 5000.0f;
-
-        ContratDto contratDto = new ContratDto(dateDebut, typeContrat, salaire);
-
-        // Assertions avec AssertJ
-        assertThat(contratDto).isNotNull();
-        assertThat(contratDto.getDateDebut()).isEqualTo(dateDebut);
-        assertThat(contratDto.getTypeContrat()).isEqualTo(typeContrat);
-        assertThat(contratDto.getSalaire()).isEqualTo(salaire);
-    }
 }
