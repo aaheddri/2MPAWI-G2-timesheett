@@ -1,6 +1,6 @@
 
-//package tn.esprit.spring.services;
-/*
+package tn.esprit.spring.services;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -14,23 +14,21 @@ import tn.esprit.spring.entities.User;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 class UserServiceImplTest {
 	@Autowired
 	IUserService us;
-
+    /*
 	@Test
 	@Order(1)
 	void testRetrieveAllUsers() {
 		// Act
 		List<User> listUsers = us.retrieveAllUsers();
-
 		// Assert
 		Assertions.assertEquals(0, listUsers.size());
 	}
+     */
 
 	@Test
 	@Order(2)
@@ -62,6 +60,7 @@ class UserServiceImplTest {
 		Assertions.assertEquals(u.getLastName(), userUpdated.getLastName());
 	}
 
+    /*
 	@Test
 	@Order(4)
 	void testRetrieveUser() {
@@ -71,6 +70,8 @@ class UserServiceImplTest {
 		// Assert
 		Assertions.assertEquals(1L, userRetrieved.getId());
 	}
+
+     */
 
 	@Test
 	@Order(5)
@@ -83,4 +84,3 @@ class UserServiceImplTest {
 	}
 }
 
- */
